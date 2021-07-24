@@ -36,7 +36,7 @@ function App() {
               />
               </CardContent>
               <CardContent>
-              <Button fullWidth variant="contained" color="primary"> Login </Button>
+              <Button fullWidth variant="contained" color="primary"> Sign Up</Button>
               </CardContent>
               <CardContent>
               <Typography align="center">  Not a Member? <Router> <Link to='/Signup'> Signup </Link> </Router> </Typography> 
