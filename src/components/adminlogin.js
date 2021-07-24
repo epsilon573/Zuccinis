@@ -19,14 +19,12 @@ const useStyles = makeStyles((theme)=>({
   }
 }));
 
-function UserLogin() {
-  
-  const classes = useStyles();
+function AdminLogin() {
 
   return (
     <>
       <div>
-        <Grid container> 
+        <Grid container>
           <Grid item xs={12} sm={6}  style={{color: "#FFFFFF", backgroundColor: "#2c2e43", minHeight: "100vh"}}>
             <Particles height="100vh" params={particleConfig} />
             <Typography className={clsx(classes.title, classes.tokyo)}> Zuccini's </Typography>
@@ -34,34 +32,19 @@ function UserLogin() {
           <Grid container xs={12} sm={6} justify="center" alignItems="center">
             <Card style={{width:"50%"}}>
             <CardContent>
-              <Typography align="center" variant="h4"> Login </Typography> 
+              <Typography align="center" variant="h4"> Admin Login </Typography> 
             </CardContent>
             <CardContent>
-              <TextField 
-                fullWidth
-                id="outlined-email-input"
-                label="Email"
-                variant="outlined"
-              />
+              <TextField id="outlined-email-input" label="Email" variant="outlined" fullWidth/>
               </CardContent>
               <CardContent>
-              <TextField
-                fullWidth
-                id="outlined-password-input"
-                label="Password"
-                type="password"
-                autoComplete="current-password"
-                variant="outlined"
-              />
+              <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password" variant="outlined" fullWidth/>
               </CardContent>
               <CardContent>
-              <Button fullWidth variant="contained" color="primary"> Login </Button>
+              <Button fullWidth variant="contained" color="primary" > Log In</Button>
               </CardContent>
               <CardContent>
-              <Typography align="center">  Not a Member? <Router> <Link to='/signup'> Signup </Link> </Router> </Typography> 
-              </CardContent>
-              <CardContent>
-              <Typography align="center">  An Admin? <Router> <Link to='/adminlogin'> Admin Login </Link> </Router> </Typography> 
+              <Typography align="center">  Not Admin? <Router> <Link to='/userlogin'> click here </Link> </Router> </Typography> 
               </CardContent>
             </Card>
           </Grid>
@@ -71,4 +54,4 @@ function UserLogin() {
   );
 }
 
-export default UserLogin;
+export default AdminLogin;
