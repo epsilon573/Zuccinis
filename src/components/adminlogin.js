@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme)=>({
 }));
 
 function AdminLogin() {
+  
+  const classes = useStyles();
 
   return (
     <>
@@ -44,7 +46,7 @@ function AdminLogin() {
               <Button fullWidth variant="contained" color="primary" > Log In</Button>
               </CardContent>
               <CardContent>
-              <Typography align="center">  Not Admin? <Router> <Link to='/userlogin'> click here </Link> </Router> </Typography> 
+              <Typography align="center">  Not Admin? <Router> <Link to='/userlogin'> Login Here </Link> </Router> </Typography> 
               </CardContent>
             </Card>
           </Grid>
