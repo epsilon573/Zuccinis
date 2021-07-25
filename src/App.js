@@ -1,8 +1,9 @@
 import React from 'react'
-import {Link, Route, BrowserRouter as Router} from 'react-router-dom';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
 import UserLogin from './components/userlogin'
 import AdminLogin from './components/adminlogin'
 import Signup from './components/signup'
+import AdminPanel from './components/adminpanel';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route path='/signup' exact>
           <Signup/>
+        </Route>
+        <Route path='/adminpanel' exact>
+          <AdminPanel/>
         </Route>
       </Router>
     </>
