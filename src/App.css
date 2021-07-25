@@ -28,6 +28,33 @@
   color: #61dafb;
 }
 
+body {
+  margin: 0px;
+}
+.row{
+  margin-top: 3%;
+  position: relative;
+}
+.row1box1{
+  border: 2px solid black !important;
+  background: #FDEBD0;
+  position: absolute;
+  margin-top: 10%;
+  
+}
+.row1box2{
+  border: 2px solid black !important;
+}
+.navbar1{
+  background: transparent !important;
+  border: 0px;
+  background: #FDEBD0;
+  
+}
+/* .container1{
+  /* position: relative; */
+  /* overflow-x: hidden; */
+/* } */ 
 
 @keyframes App-logo-spin {
   from {
