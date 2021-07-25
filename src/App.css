@@ -28,33 +28,87 @@
   color: #61dafb;
 }
 
-body {
-  margin: 0px;
-}
-.row{
-  margin-top: 3%;
-  position: relative;
-}
-.row1box1{
-  border: 2px solid black !important;
-  background: #FDEBD0;
-  position: absolute;
-  margin-top: 10%;
+
+.navbar-inverse{
+  background: #FFC55B !important;
+  border-color: transparent !important;
   
 }
-.row1box2{
-  border: 2px solid black !important;
+.navbar-inverse .navbar-brand{
+  color: #fff !important;
+  font-family: monospace;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-right: 35px;
 }
-.navbar1{
-  background: transparent !important;
-  border: 0px;
-  background: #FDEBD0;
+.navbar-inverse .navbar-nav > li > a {  
+  color: #fff !important;
+}
+
+.container1{
+  background-image: url(./components/images/Homefood.jpg);
+  background-size: cover;
+  height: 100vh;
+  margin-top: -20px;
   
+ } 
+#myNavbar .navbar-nav {
+  color: #fff !important;
+  font-family: monospace;
+  font-size: 18px;
+  margin-top: 5px;
+
+} 
+/* .list{
+  color: #fff !important;
+  font-family: monospace;
+  font-size: 18px;
+} */
+.row1{
+  position: relative !important;
 }
-/* .container1{
-  /* position: relative; */
-  /* overflow-x: hidden; */
-/* } */ 
+.welcometext1{
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(90deg, rgba(255,97,0,0.1225840678068102) 0%, rgba(222,192,38,0.6141807064622724) 50%, rgba(255,97,0,0.1225840678068102) 100%);
+  color: #fff;
+}
+.welcometext2{
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  background: rgb(255,97,0);
+  background: linear-gradient(90deg, rgba(255,97,0,0.1225840678068102) 0%, rgba(222,192,38,0.6141807064622724) 50%, rgba(255,97,0,0.1225840678068102) 100%);
+  color: #fff;
+}
+
+.box1{
+  position: absolute !important;
+  margin-top: 15%;
+  margin-left: 20%;
+}
+.box2{
+  position: absolute !important;
+  margin-top: 35%;
+  margin-left: 55%;
+  background-color: #fff;
+  /* height: 20vh; */
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+.review1{
+  font-family: 'Lobster', cursive;
+}
+
+.img1{
+  border-radius: 50%;
+
+}
+.glyphicon-star {
+  font-size: 30px;
+  color: #e67e22;
+}
+
 
 @keyframes App-logo-spin {
   from {

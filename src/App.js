@@ -5,17 +5,20 @@ import Particles from 'react-particles-js'
 import particleConfig from './config/particle-config'
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import {Link} from 'react-router-dom';
-import login from './components/login';
+import UserLogin from './components/userLogin';
 import Home from './components/home';
-import Reg from './components/signup';
+import Signup from './components/signup';
 import Product from './components/product';
-import Admin from './components/adminlogin';
+import AdminLogin from './components/adminlogin';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <>
       <Router>
+         <Route path='/' exact>
+          <Home/>
+        </Route>
         <Route path='/userlogin' exact>
           <UserLogin/>
         </Route>
