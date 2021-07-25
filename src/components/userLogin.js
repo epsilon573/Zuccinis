@@ -3,7 +3,7 @@ import {Grid,Card,CardContent,TextField,Button,Typography} from '@material-ui/co
 import Particles from 'react-particles-js'
 import particleConfig from '../config/particle-config'
 import {Link, BrowserRouter as Router} from 'react-router-dom';
-import {makeStyles, createTheme, responsiveFontSizes, ThemeProvider} from '@material-ui/core/styles'
+import {makeStyles, createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core/styles'
 import clsx from 'clsx'
 
 const useStyles = makeStyles((theme)=>({
@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme)=>({
   }
 }));
 
-function Signup() {
-
+function UserLogin() {
+  
   const classes = useStyles();
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
@@ -27,7 +27,7 @@ function Signup() {
     <>
       <div>
       <ThemeProvider theme={theme}>
-      <Grid container>
+        <Grid container> 
           <Grid container xs={12} sm={6} justify="center" style={{color: "#FFFFFF", backgroundColor: "#2c2e43", minHeight: "100vh"}}>
             <Particles height="100vh" width="100%" params={particleConfig} />
             <Typography variant="h1" className={clsx(classes.title, classes.tokyo)}> Zuccini's </Typography>
@@ -35,25 +35,34 @@ function Signup() {
           <Grid container xs={12} sm={6} justify="center" alignItems="center" style={{padding: '5%'}}>
             <Card style={{width:"50%"}}>
             <CardContent>
-              <Typography align="center" variant="h4"> Sign Up </Typography> 
+              <Typography align="center" variant="h4"> Login </Typography> 
             </CardContent>
             <CardContent>
-              <TextField id="outlined-name-input" label="Name"  variant="outlined" fullWidth  />
-              </CardContent>
-            <CardContent>
-              <TextField id="outlined-email-input" label="Email" variant="outlined" fullWidth />
-              </CardContent>
-              <CardContent>
-              <TextField id="outlined-password-input" label="Password" type="password" variant="outlined" fullWidth />
-              </CardContent>
-              <CardContent>
-              <TextField id="outlined-contact-input" label="Contact" variant="outlined" fullWidth />
+              <TextField 
+                fullWidth
+                id="outlined-email-input"
+                label="Email"
+                variant="outlined"
+              />
               </CardContent>
               <CardContent>
-              <Button fullWidth variant="contained" color="primary" onclick="window.location.href='./product'"> Sign Up</Button>
+              <TextField
+                fullWidth
+                id="outlined-password-input"
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                variant="outlined"
+              />
               </CardContent>
               <CardContent>
-              <Typography align="center">  Already a Member? <Router> <Link to='/login'> Log In </Link> </Router> </Typography> 
+              <Button fullWidth variant="contained" color="primary"> Login </Button>
+              </CardContent>
+              <CardContent>
+              <Typography variant="h6" align="center">  Not a Member? <Router> <Link to='/signup'> Signup </Link> </Router> </Typography> 
+              </CardContent>
+              <CardContent>
+              <Typography variant="h6" align="center">  An Admin? <Router> <Link to='/adminlogin'> Login Here </Link> </Router> </Typography> 
               </CardContent>
             </Card>
           </Grid>
@@ -64,4 +73,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default UserLogin;

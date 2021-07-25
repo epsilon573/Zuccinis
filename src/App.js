@@ -13,20 +13,19 @@ import Admin from './components/adminlogin';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-
   return (
     <>
-      <div>
       <Router>
-          <Route path="/" exact component={Home} /> 
-          <Route path="/login" component={login} />
-          <Route path="/reg" component={Reg} />
-          <Route path="/product" component={Product} />
-          <Route path="/admin" component={Admin} />
-           
-          
-        </Router>
-      </div>
+        <Route path='/userlogin' exact>
+          <UserLogin/>
+        </Route>
+        <Route path='/adminlogin' exact>
+          <AdminLogin/>
+        </Route>
+        <Route path='/signup' exact>
+          <Signup/>
+        </Route>
+      </Router>
     </>
   );
 }
