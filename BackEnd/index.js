@@ -5,7 +5,7 @@ const cors = require('cors');
 
 // Setup Database
 
-const connString = "mongodb+srv://sahil:helloworld@training.4phw8.mongodb.net/practice?retryWrites=true"
+const connString = "mongodb+srv://sahil:helloworld@training.4phw8.mongodb.net/zuccini?retryWrites=true"
 const mongoClient = mongodb.MongoClient;
 
 mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
@@ -14,62 +14,56 @@ mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
     
     console.log('Connected to Database!')
 
-    const db = client.db('practice');
-    const register = db.collection('register');
+    const db = client.db('zuccini');
+    const users = db.collection('users');
+    const category = db.collection('category');
+    const orders = db.collection('orders');
 
-    register.find().toArray().then( results =>{
-        console.log(results);
-    }).catch( error=> {
-        console.error(error);
-    });
-
-    app.post('/sendReq',(req,res)=>{
-        console.log(req.body);
+    app.post('/addCategory',(req,res)=>{
         var myObj = {
-            Name: req.body.Name,
-            Email: req.body.Email,
-            Password: req.body.Password,
-            Contact: req.body.Contact
+            name: req.body.newCategory
         };
-    
-        register.insertOne(myObj, (err,res)=> {
+        
+        console.log(req.body.newCategory);
+
+        category.insertOne(myObj, (err,res)=> {
             if(err) console.error(err);
             else console.log("Entry Inserted");
         })
     });
     
-    app.get('/getReq',(req,res)=>{
-        register.find().toArray().then(succ=>{
+    app.get('/getCategory',(req,res)=>{
+        category.find().toArray().then(succ=>{
             if(succ) res.send(succ);
             else console.log("Couldn't Fulfill Get Request!")
         })
     });
 
-    app.post('/getReq',(req,res)=>{
-        var id = mongodb.ObjectId(req.body.fetchID);
-        register.findOne({ _id: id}).then(succ=>{
-            res.send(succ);
-        });
-    });
+    // app.post('/getReq',(req,res)=>{
+    //     var id = mongodb.ObjectId(req.body.fetchID);
+    //     register.findOne({ _id: id}).then(succ=>{
+    //         res.send(succ);
+    //     });
+    // });
 
-    app.post('/delReq', (req,res)=>{
-        var idx = mongodb.ObjectId(req.body.delID);
-        register.deleteOne({
-            _id: idx
-        });
-    });
+    // app.post('/delReq', (req,res)=>{
+    //     var idx = mongodb.ObjectId(req.body.delID);
+    //     register.deleteOne({
+    //         _id: idx
+    //     });
+    // });
 
-    app.post('/editReq',(req,res)=>{
-        var id = mongodb.ObjectId(req.body.updateID);
-        register.updateOne({_id: id}, {
-            $set:{
-                Name: req.body.Name,
-                Email: req.body.Email,
-                Password: req.body.Password,
-                Contact: req.body.Contact  
-                }
-        });
-    });
+    // app.post('/editReq',(req,res)=>{
+    //     var id = mongodb.ObjectId(req.body.updateID);
+    //     register.updateOne({_id: id}, {
+    //         $set:{
+    //             Name: req.body.Name,
+    //             Email: req.body.Email,
+    //             Password: req.body.Password,
+    //             Contact: req.body.Contact  
+    //             }
+    //     });
+    // });
 
 });
 

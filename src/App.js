@@ -4,6 +4,7 @@ import UserLogin from './components/userlogin'
 import AdminLogin from './components/adminlogin'
 import Signup from './components/signup'
 import AdminPanel from './components/adminpanel';
+import AddCategory from './components/addcategory';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route path='/adminpanel' exact>
           <AdminPanel/>
+        </Route>
+        <Route path='/addcategory' exact>
+          <AddCategory/>
         </Route>
       </Router>
     </>
