@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Grid,Card,CardContent,TextField,Button,Typography } from '@material-ui/core'
+import {Grid,Card,CardContent,TextField,Button,Typography, MenuItem } from '@material-ui/core'
 import {Link} from 'react-router-dom';
 import {createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core/styles'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
@@ -17,6 +17,15 @@ function AddProduct() {
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState('');
 
+    const [categoryList, setCategoryList] = useState([]);
+    
+    const getCategory = () => {
+      Axios.get('http://localhost:5000/getCategory').then((res)=>{
+          console.log(res.data);
+          setCategoryList(res.data);
+      });
+    };
+
   const getProducts = () => {
     Axios.get('http://localhost:5000/getProducts').then((res)=>{
         console.log(res.data);
@@ -25,15 +34,23 @@ function AddProduct() {
   };
 
   const addProduct = () => {
-    Axios.post('http://localhost:5000/addProduct',{
-
-    }).then(()=>{
+    console.log('Adding Product');
+    var MyObj = {
+      prodName: name,
+      prodCategory: category,
+      prodType: type,
+      prodPrice: parseInt(price),
+      prodDescription: description
+    };
+    console.log(MyObj);
+    Axios.post('http://localhost:5000/addProduct',MyObj).then(()=>{
       getProducts();
     });
   }
 
   useEffect(()=>{
     getProducts();
+    getCategory();
   },[]);
 
   return (
@@ -79,7 +96,7 @@ function AddProduct() {
                               <Typography> {row.type} </Typography>
                             </TableCell> 
                             <TableCell>
-                              <Typography> {row.price.$numberDecimal} </Typography>
+                              <Typography> {row.price} </Typography>
                             </TableCell> 
                             <TableCell>
                               <Typography> {row.description} </Typography>
@@ -106,6 +123,37 @@ function AddProduct() {
                 variant="outlined"
                 onChange={(event)=>{setName(event.target.value)}}
               />
+            </CardContent>
+            <CardContent>
+            <TextField 
+                fullWidth
+                select
+                id="select-category-input"
+                label="Category"
+                onChange={(event)=>{setCategory(event.target.value)}}
+                value={category}
+              >
+              {
+                categoryList.map((item)=>(
+                  <MenuItem key={item._id} value={item.name}>
+                    {item.name}
+                  </MenuItem>
+                ))
+              }
+              </TextField>
+            </CardContent>
+            <CardContent>
+            <TextField 
+                fullWidth
+                select
+                id="select-type-input"
+                label="Type"
+                onChange={(event)=>{setType(event.target.value)}}
+                value={type}
+              >
+              <MenuItem key="veg" value="Veg"> Veg </MenuItem>
+              <MenuItem key="nonveg" value="Non-Veg"> Non-Veg </MenuItem>
+              </TextField>
             </CardContent>
             <CardContent>
             <TextField 

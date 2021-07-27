@@ -13,7 +13,7 @@ var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'timothygreen573@gmail.com',
-        pass: 'xxxxxx'
+        pass: 'texkwjzbhknpeapk'
     }
 })
 
@@ -42,7 +42,7 @@ mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
         })
     });
 
-    app.get('/addProduct',(req,res)=>{
+    app.post('/addProduct',(req,res)=>{
         var myObj = {
             name: req.body.prodName,
             category: req.body.prodCategory,
