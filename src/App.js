@@ -5,6 +5,7 @@ import AdminLogin from './components/adminlogin'
 import Signup from './components/signup'
 import AdminPanel from './components/adminpanel';
 import AddCategory from './components/addcategory';
+import AddProduct from './components/addproduct';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path='/addcategory' exact>
           <AddCategory/>
+        </Route>
+        <Route path='/addproduct' exact>
+          <AddProduct/>
         </Route>
       </Router>
     </>

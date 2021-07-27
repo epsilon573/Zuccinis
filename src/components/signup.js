@@ -2,7 +2,7 @@ import React from 'react'
 import {Grid,Card,CardContent,TextField,Button,Typography} from '@material-ui/core'
 import Particles from 'react-particles-js'
 import particleConfig from '../config/particle-config'
-import {Link, BrowserRouter as Router} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {makeStyles, createTheme, responsiveFontSizes, ThemeProvider} from '@material-ui/core/styles'
 import clsx from 'clsx'
 
@@ -53,7 +53,7 @@ function Signup() {
               <Button fullWidth variant="contained" color="primary" onclick="window.location.href='./product'"> Sign Up</Button>
               </CardContent>
               <CardContent>
-              <Typography align="center">  Already a Member? <Router> <Link to='/login'> Log In </Link> </Router> </Typography> 
+              <Typography align="center">  Already a Member? <Link to='/login'> Log In </Link> </Typography> 
               </CardContent>
             </Card>
           </Grid>

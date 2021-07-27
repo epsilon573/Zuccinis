@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Grid,Card,CardContent,TextField,Button,Typography } from '@material-ui/core'
-import {Link, BrowserRouter as Router} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core/styles'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import Axios from 'axios';
@@ -82,7 +82,7 @@ function AddCategory() {
               <Button fullWidth variant="contained" color="primary" onClick={addCategory}> Insert </Button>
               </CardContent>
               <CardContent>
-              <Typography variant="h6" align="center"> <Router> <Link to='/adminpanel'>  Admin Panel </Link> </Router> </Typography> 
+              <Typography variant="h6" align="center"> <Link to='/adminpanel'>  Admin Panel </Link> </Typography> 
               </CardContent>
             </Card>
           </Grid>

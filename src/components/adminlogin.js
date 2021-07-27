@@ -2,7 +2,7 @@ import React from 'react'
 import {Grid,Card,CardContent,TextField,Button,Typography} from '@material-ui/core'
 import Particles from 'react-particles-js'
 import particleConfig from '../config/particle-config'
-import {Link, BrowserRouter as Router} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {makeStyles, createTheme, responsiveFontSizes, ThemeProvider} from '@material-ui/core/styles'
 import clsx from 'clsx'
 
@@ -47,7 +47,7 @@ function AdminLogin() {
               <Button fullWidth variant="contained" color="primary" > Log In</Button>
               </CardContent>
               <CardContent>
-              <Typography variant="h6" align="center">  Not Admin? <Router> <Link to='/userlogin'> Login Here </Link> </Router> </Typography> 
+              <Typography variant="h6" align="center">  Not Admin? <Link to='/userlogin'> Login Here </Link> </Typography> 
               </CardContent>
             </Card>
           </Grid>
