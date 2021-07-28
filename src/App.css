@@ -1,18 +1,6 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -29,10 +17,15 @@
 }
 *{
   font-family: monospace;
+  color: rgb(128, 65, 23);
+}
+
+.glyphicon-glass{
+  color: #fff !important;
 }
 
 .navbar-inverse{
-  background: #2959A6 !important;
+  background: rgb(211, 129, 74) !important;
   border-color: transparent !important;
   
 }
@@ -50,7 +43,6 @@
 .container1{
   background-image: url(./components/images/Homefood.jpg);
   background-size: cover;
-  height: 100vh;
   margin-top: -20px;
   
  } 
@@ -62,33 +54,24 @@
 
 } 
 .row1{
-  position: relative !important;
-}
+  margin-top: 20%;
+} 
 .welcometext1{
   font-size: 50px;
-  font-family: 'Montserrat', sans-serif;
   background: linear-gradient(90deg, rgba(255,97,0,0.1225840678068102) 0%, rgba(222,192,38,0.6141807064622724) 50%, rgba(255,97,0,0.1225840678068102) 100%);
-  color: #fff;
+  font-weight: 900;
 }
 .welcometext2{
   font-size: 25px;
-  font-family: 'Montserrat', sans-serif;
-  background: rgb(255,97,0);
+  /* background: rgb(255,97,0); */
   background: linear-gradient(90deg, rgba(255,97,0,0.1225840678068102) 0%, rgba(222,192,38,0.6141807064622724) 50%, rgba(255,97,0,0.1225840678068102) 100%);
-  color: #fff;
+  font-weight: 400;
 }
 
-.box1{
-  position: absolute !important;
-  margin-top: 15%;
-  margin-left: 20%;
-}
 .box2{
-  position: absolute !important; 
-  margin-top: 35%;
-  margin-left: 55%;
-  background-color: #fff;
-  height: 20vh;
+  background-color: rgb(255, 255, 255, 0.99) ;
+  margin-top: 8%;
+  margin-bottom: 2%;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -113,16 +96,12 @@
 .box3{
   background-color:#fff;
 }
-.container3{
-  height: 50vh;
-}
 .box4{
   background-color: #fff;
 }
 
 
 .box41{
-  height: 45vh;
   background-color: #fff;
   border: 1px solid lightgrey;
   border-radius: 2%;
@@ -137,35 +116,21 @@
 
 }
 input[type="text"] {
-  /* border-top: 0;
-  border-right: 0;
-  border-left: 0; */
-  border-bottom: 2px solid orange;
-
-  -webkit-box-shadow: none;
-  box-shadow: none; 
+  border-radius: 20px;
+  border: 2px solid rgb(128, 65, 23) ;
 }
 #date {
-  /* border-top: 0;
-  border-right: 0;
-  border-left: 0; */
-  border-bottom: 2px solid orange;
-
-  /* -webkit-box-shadow: none;
-  box-shadow: none;  */
+  border-radius: 20px;
+  border: 2px solid rgb(128, 65, 23) ;
 
 }
 #comment{
-  /* border-top: 0;
-  border-right: 0;
-  border-left: 0; */
-  border-bottom: 2px solid orange;
+  border-radius: 20px;
+  border: 2px solid rgb(128, 65, 23) ;
 }
 #inputFood{
-  /* border-top: 0;
-  border-right: 0;
-  border-left: 0; */
-  border-bottom: 2px solid orange;
+  border-radius: 20px;
+  border: 2px solid rgb(128, 65, 23) ;
 }
 .tablebookhead1{
   font-weight: 900;
@@ -173,13 +138,100 @@ input[type="text"] {
 .tablebookhead2{
   font-weight: lighter;
 }
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.guests{
+  font-weight: 700;
+  font-size: 16px;
+}
+.box61 .box62{
+    background-color: #fff;
+    /* height: 20vh; */
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+   border-radius: 2%;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  
   }
-  to {
-    transform: rotate(360deg);
-  }
+.box6{
+    background-color: #fff;
+  
+}
+.heading3 .heading4{
+  font-size: 30px;
+}
+.heading3{
+  font-weight: 900;
+}
+.heading4{
+  font-weight: normal;
+}
+.row3{
+  position: relative;
+}
+.btn{
+  width: 40%;
+  height: 50px;
+  background: rgb(128, 65, 23) !important;
+  color: #fff !important;
+  border: none;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  border-radius: 20px !important;
+
+}
+.btn2{
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  width: 20%;
+  height: 50px;
+  background: #fff !important;
+  color: orange !important;
+  border: none;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  border-radius: 20px !important;
+}
+
+.container6{
+  width: 100% !important;
+  color: rgb(128, 65, 23);
+}
+.img-responsive{
+  color: orange !important;
+}
+.heading5{
+  font-weight: 700;
+}
+.para1{
+  font-weight: 150;
+  color: rgb(128, 65, 23);
+  font-size: 15px;
+}
+.Address{
+  font-size: 22px;
+  font-weight: 500;
+}
+.contact{
+  font-size: 25px;
+  font-weight: 800;
+}
+.email{
+  font-size: 20px;
+  font-weight: 500;
+}
+.list1{
+  font-weight: 300;
+  color: rgb(128, 65, 23);
+  text-decoration: none !important;
+  font-size: 18px;
+}
+.footer{
+  text-align: center;
+  font-weight: 500;
+}
+.menu:hover
+{
+    font-size: 22px !important;
 }

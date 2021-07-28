@@ -11,6 +11,8 @@ import Signup from './components/signup';
 import Product from './components/product';
 import AdminLogin from './components/adminlogin';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   return (
