@@ -30,6 +30,15 @@ function App() {
         <Route path='/signup' exact>
           <Signup/>
         </Route>
+        <Route path='/adminpanel' exact>
+          <AdminPanel/>
+        </Route>
+        <Route path='/addcategory' exact>
+          <AddCategory/>
+        </Route>
+        <Route path='/addproduct' exact>
+          <AddProduct/>
+        </Route>
       </Router>
     </>
   );
