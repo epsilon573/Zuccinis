@@ -43,7 +43,7 @@ function AddProduct() {
       prodDescription: description
     };
     console.log(MyObj);
-    Axios.post('http://localhost:5000/addProduct',MyObj).then(()=>{
+    Axios.post('http://localhost:5000/addProduct',MyObj).then((res)=>{
       getProducts();
     });
   }
@@ -51,7 +51,7 @@ function AddProduct() {
   useEffect(()=>{
     getProducts();
     getCategory();
-  },[]);
+  },[products]);
 
   return (
     <>

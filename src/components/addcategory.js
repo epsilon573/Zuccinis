@@ -22,14 +22,14 @@ function AddCategory() {
 
   const addCategory = () => {
     console.log("Adding new Cateogry "+newCategory);
-    Axios.post('http://localhost:5000/addCategory',{ newCategory: newCategory}).then(()=>{
+    Axios.post('http://localhost:5000/addCategory',{ newCategory: newCategory}).then((res)=>{
       getCategory();
     });
   }
 
   useEffect(()=>{
     getCategory();
-  },[]);
+  },[category]);
 
   return (
     <>
