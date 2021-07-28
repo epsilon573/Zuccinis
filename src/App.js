@@ -2,7 +2,7 @@ import React from 'react'
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 import UserLogin from './components/userlogin'
 import AdminLogin from './components/adminlogin'
-import Signup from './components/signup'
+import UserSignup from './components/signup'
 import AdminPanel from './components/adminpanel';
 import AddCategory from './components/addcategory';
 import AddProduct from './components/addproduct';
@@ -18,7 +18,7 @@ function App() {
           <AdminLogin/>
         </Route>
         <Route path='/signup' exact>
-          <Signup/>
+          <UserSignup/>
         </Route>
         <Route path='/adminpanel' exact>
           <AdminPanel/>

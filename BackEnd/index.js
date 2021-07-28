@@ -28,6 +28,7 @@ mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
     const category = db.collection('category');
     const orders = db.collection('orders');
     const products = db.collection('products');
+    const admins = db.collection('admins');
 
     app.post('/addCategory',(req,res)=>{
         var myObj = {
@@ -56,6 +57,87 @@ mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
         products.insertOne(myObj, (err,res)=> {
             if(err) console.error(err);
             else console.log("Product Inserted");
+        })
+    });
+
+    app.post('/Login',(req,res)=>{
+        var myObj = {
+            email: req.body.userEmail,
+            password: req.body.userPassword
+        };
+        
+        console.log(myObj);
+
+        users.findOne({ email : req.body.userEmail }, (err,doc)=> {
+            if(err) console.error(err);
+            else
+            {
+                if(doc)
+                {
+                    if(doc.password === req.body.userPassword)
+                        res.send('User Found')
+                    else 
+                        res.send('Wrong Password')
+                }
+                else
+                    res.send('This Email is not registered')
+            }
+        })
+    });
+
+    app.post('/Signup',(req,res)=>{
+        var myObj = {
+            name: req.body.userName,
+            email: req.body.userEmail,
+            password: req.body.userPassword,
+            contact: req.body.userContact
+        };
+        
+        console.log(myObj);
+
+        users.findOne({ email : req.body.userEmail }, (err,doc)=> {
+            if(err) res.send('Some Error Occured');
+            else
+            {
+                if(doc)
+                {
+                    res.send('Email is already registered')
+                }
+                else
+                {
+                    users.insertOne( myObj, (err)=> {
+                        if(err)
+                            res.send('Some Error Occured')
+                        else
+                            res.send('Registered')
+                    })
+                }
+            }
+        })
+    });
+
+    app.post('/adminLogin',(req,res)=>{
+        var myObj = {
+            email: req.body.adminEmail,
+            password: req.body.adminPassword
+        };
+        
+        console.log(myObj);
+
+        admins.findOne({ email : req.body.adminEmail }, (err,doc)=> {
+            if(err) console.error(err);
+            else
+            {
+                if(doc)
+                {
+                    if(doc.password === req.body.adminPassword)
+                        res.send('User Found')
+                    else 
+                        res.send('Wrong Password')
+                }
+                else
+                    res.send('This Email is not registered')
+            }
         })
     });
 

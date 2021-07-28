@@ -1,11 +1,11 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import {Grid,Card,CardContent,TextField,Button,Typography} from '@material-ui/core'
 import Particles from 'react-particles-js'
 import particleConfig from '../config/particle-config'
 import {Link} from 'react-router-dom';
 import {makeStyles, createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core/styles'
 import clsx from 'clsx'
-
+import Axios from 'axios'
 const useStyles = makeStyles((theme)=>({
   title: {
     position: 'absolute',
@@ -22,6 +22,30 @@ function UserLogin() {
   const classes = useStyles();
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const Login = () =>{
+    var myObj = {
+      userEmail : email,
+      userPassword : password
+    };
+
+    console.log(myObj);
+
+    Axios.post('http://localhost:5000/Login',myObj).then((res)=>{
+        if(res.data === "User Found")
+        {
+          window.location.href = '/home';
+        }
+        else
+        {
+          setErrorMsg(res.data);
+        }
+    })
+  }
 
   return (
     <>
@@ -43,6 +67,7 @@ function UserLogin() {
                 id="outlined-email-input"
                 label="Email"
                 variant="outlined"
+                onChange={(event)=>{ setEmail(event.target.value) }}
               />
               </CardContent>
               <CardContent>
@@ -53,10 +78,12 @@ function UserLogin() {
                 type="password"
                 autoComplete="current-password"
                 variant="outlined"
+                onChange={(event)=>{ setPassword(event.target.value) }}
+                helperText = {errorMsg}
               />
               </CardContent>
               <CardContent>
-              <Button fullWidth variant="contained" color="primary"> Login </Button>
+              <Button fullWidth variant="contained" color="primary" onClick={Login}> Login </Button>
               </CardContent>
               <CardContent>
               <Typography variant="h6" align="center">  Not a Member? <Link to='/signup'> Signup </Link> </Typography> 
