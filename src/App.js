@@ -11,8 +11,12 @@ import Signup from './components/signup';
 import Product from './components/product';
 import AdminLogin from './components/adminlogin';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import AdminPanel from './components/adminpanel.js';
+import AddCategory from './components/addcategory.js';
+import AddProduct from './components/addproduct.js';
+import AboutUs from './components/aboutus.js';
+import ContactUs from './components/contactus.js';
+
 
 function App() {
   return (
@@ -38,6 +42,11 @@ function App() {
         </Route>
         <Route path='/addproduct' exact>
           <AddProduct/>
+        </Route>
+        <Route path='/about' exact>
+          <AboutUs/>
+        </Route><Route path='/contact' exact>
+          <ContactUs/>
         </Route>
       </Router>
     </>

@@ -117,20 +117,25 @@
 }
 input[type="text"] {
   border-radius: 20px;
-  border: 2px solid rgb(128, 65, 23) ;
+  border: 1px solid rgb(128, 65, 23) ;
 }
-#date {
+#contact{
   border-radius: 20px;
-  border: 2px solid rgb(128, 65, 23) ;
+  border: 1px solid rgb(128, 65, 23) ;
+
+}
+#date{
+  border-radius: 20px;
+  border: 1px solid rgb(128, 65, 23) ;
 
 }
 #comment{
   border-radius: 20px;
-  border: 2px solid rgb(128, 65, 23) ;
+  border: 1px solid rgb(128, 65, 23) ;
 }
 #inputFood{
   border-radius: 20px;
-  border: 2px solid rgb(128, 65, 23) ;
+  border: 1px solid rgb(128, 65, 23) ;
 }
 .tablebookhead1{
   font-weight: 900;
@@ -139,8 +144,8 @@ input[type="text"] {
   font-weight: lighter;
 }
 .guests{
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 18px;
 }
 .box61 .box62{
     background-color: #fff;
@@ -234,4 +239,68 @@ input[type="text"] {
 .menu:hover
 {
     font-size: 22px !important;
+}
+.text4{
+  font-weight: 900;
+}
+.text5{
+  font-weight: 400;
+}
+
+
+/* about.js css */
+
+.aboutcont1{
+  height: 500px;
+  background-image: url(./components/images/group.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-top: -20px;
+}
+/* .abox1{
+  width: 100%;
+} */
+.abox11{
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid lightgrey;
+  border-radius: 2%;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+.apara1{
+  margin-left: 10%;
+  width: 80%;
+  text-align:justify;
+  font-weight: normal;
+}
+.aheading1{
+  font-size: 40px;
+  font-weight: 800;
+}
+/* .abox2{
+ 
+  border: 1px solid lightgrey;
+  border-radius: 2%;
+  box-shadow: rgba(217, 231, 243, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+} */
+.btn3{
+  width: 40%;
+  height: 50px;
+  background: rgb(128, 65, 23) !important;
+  color: #fff !important;
+  /* border: 2px solid rgb(128, 65, 23) !important; */
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  border-radius: 20px !important;
+  margin-top: 5%;
+}
+/* contactus */
+.cheading1{
+  font-size: 25px;
+  font-weight: 550;
+}
+.cpara1{
+  color: grey !important;
+  font-size: 18px;
+  font-weight: 200;
 }

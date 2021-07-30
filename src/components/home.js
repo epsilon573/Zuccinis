@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import image1 from "../components/images/Homefood.jpg";
-import image2 from "../components/images/Homefood2.jpg";
+// import image1 from "../components/images/Homefood.jpg";
+// import image2 from "../components/images/Homefood2.jpg";
 import Robert from "../components/images/robert.jpg";
 import Burger from "../components/images/burger.jpg";
 import Meal from "../components/images/meal.jpg";
@@ -14,18 +14,18 @@ import Res1 from "../components/images/restaurant1.jpg";
 import Res2 from "../components/images/restaurant2.jpg";
 import Res3 from "../components/images/restaurant3.jpg";
 import Res4 from "../components/images/restaurant4.jpg";
-import Fb from "../components/images/fb.svg";
-import Pinterest from "../components/images/pinterest.svg";
-import Insta from "../components/images/insta.svg";
-import Twitter from "../components/images/twitter.svg";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { fafacebook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import Fb from "../components/images/fb.svg";
+// import Pinterest from "../components/images/pinterest.svg";
+// import Insta from "../components/images/insta.svg";
+// import Twitter from "../components/images/twitter.svg";
+// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+// import { fafacebook } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function home() {
   return (
     <>
-      <nav class="navbar navbar-inverse">
+      <nav class="navbar navbar-inverse navbar-fixed">
         <div class="container-fluid">
           <div class="navbar-header">
             <button
@@ -46,16 +46,16 @@ function home() {
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
               <li className="list">
-              <a className="menu" href="#contactus">Home</a>
+              <a className="menu" href="/">Home</a>
               </li>
               <li className="list">
-              <a className="menu" href="#contactus">Products</a>
+              <a className="menu" href="/contact">Products</a>
               </li>
               <li className="list">
-                <a className="menu" href="#contactus">Contact</a>
+                <a className="menu" href="/contact">Contact</a>
               </li>
               <li className="list">
-                 <a className="menu" href="#about">About</a>
+                 <a className="menu" href="/about">About</a>
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
@@ -83,7 +83,7 @@ function home() {
         </div>
         <div className="col-lg-4 col-lg-offset-8 box2">
           <div className="col-lg-4 text-center">
-            <img src={Robert} width="60%" className="img-fluid img1" />
+            <img src={Robert} alt="" width="60%" className="img-fluid img1" />
           </div>
           <div className="col-lg-8 ">
             <h4 className="review1">
@@ -106,10 +106,10 @@ function home() {
       <div className="container-fluid container2">
         <div className="row row2">
           <div className="col-lg-12 box3">
-            <h1 className="heading1 text-center">
+            <h1 className="heading1 text-center text4">
               Best Way to Eat Healthy Food
             </h1>
-            <h3 className="heading2 text-center">
+            <h3 className="heading2 text-center text5">
               Making a reservation at Delicious restaurant is easy and takes
               just a couple of minutes
             </h3>
@@ -122,7 +122,7 @@ function home() {
       <div className="container container3 ">
         <div className="col-lg-4 box4">
           <div className="box41 text-center">
-            <img src={Meal} width="40%" className="img-fluid img1" />
+            <img src={Meal} width="40%" className="img-fluid img1" alt=""/>
             <h3>
               <strong>Healthy meal</strong>
             </h3>
@@ -135,7 +135,7 @@ function home() {
         </div>
         <div className="col-lg-4 box4">
           <div className="box41 text-center">
-            <img src={Burger} width="40%" className="img-fluid img1" />
+            <img src={Burger} width="40%" className="img-fluid img1" alt="" />
             <h3>
               <strong>Fast Food</strong>
             </h3>
@@ -148,7 +148,7 @@ function home() {
         </div>
         <div className="col-lg-4 box4">
           <div className="box41 text-center">
-            <img src={Coffee} width="40%" className="img-fluid img1" />
+            <img src={Coffee} width="40%" className="img-fluid img1" alt="" />
             <h3>
               <strong>Delicious Coffee</strong>
             </h3>
@@ -165,7 +165,7 @@ function home() {
       <div className="container-fluid container4">
         <div className="col-lg-5 col-lg-offset-1">
           <div className="box5">
-            <img src={Table} width="100%" className="img-fluid tablebookimg" />
+            <img src={Table} width="100%" className="img-fluid tablebookimg" alt="" />
           </div>
         </div>
         <div className="col-lg-4 col-lg-offset-1">
@@ -216,6 +216,17 @@ function home() {
                   />
                 </div>
                 <div class="form-group col-lg-12">
+                  <label className="guests" for="contact">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="contact"
+                    placeholder="Enter Your Email"
+                  />
+                </div>
+                <div class="form-group col-lg-12">
                   <label className="guests" for="comment">Message:</label>
                   <textarea
                     class="form-control"
@@ -251,7 +262,7 @@ function home() {
       <div className="container">
         <div className="col-lg-4 box6">
           <div className="box61 text-center">
-            <img src={Starc} width="50%" className="img-fluid img1" />
+            <img src={Starc} width="50%" className="img-fluid img1" alt=""/>
           </div>
           <div className="box61 text-center ">
             <h4 className="review1">
@@ -272,7 +283,7 @@ function home() {
 
         <div className="col-lg-4 box6">
           <div className="box61 text-center">
-            <img src={Alex} width="50%" className="img-fluid img1" />
+            <img src={Alex} width="50%" className="img-fluid img1" alt="" />
           </div>
           <div className="box61 text-center ">
             <h4 className="review1">
@@ -292,7 +303,7 @@ function home() {
         </div>
         <div className="col-lg-4 box6">
           <div className="box61 text-center">
-            <img src={David} width="50%" className="img-fluid img1" />
+            <img src={David} width="50%" className="img-fluid img1" alt=""/>
           </div>
           <div className="box61 text-center ">
             <h4 className="review1">
@@ -316,10 +327,10 @@ function home() {
       <div className="container-fluid">
         <div className="row ">
           <div className="col-lg-12 row3">
-            <img src={Res1} width="25%" className="img-fluid" />
-            <img src={Res2} width="25%" className="img-fluid" />
-            <img src={Res3} width="25%" className="img-fluid" />
-            <img src={Res4} width="25%" className="img-fluid" />
+            <img src={Res1} width="25%" className="img-fluid" alt=""/>
+            <img src={Res2} width="25%" className="img-fluid" alt="" />
+            <img src={Res3} width="25%" className="img-fluid" alt="" />
+            <img src={Res4} width="25%" className="img-fluid" alt="" />
             <div className>
               {" "}
               <button type="button" class="btn btn2 btn-primary">
