@@ -17,6 +17,7 @@ var transporter = nodemailer.createTransport({
     }
 })
 
+
 mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
     if(err) 
         return console.error(err);
@@ -53,6 +54,7 @@ mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
         
         console.log(myObj);
 
+    
         products.insertOne(myObj, (err,res)=> {
             if(err) console.error(err);
             else console.log("Product Inserted");
@@ -99,6 +101,42 @@ app.get('/sendMail',(req,res)=>{
         }
     })
 });
+
+// table booking mail
+
+app.post('/sendMail1', (req,res) => {
+           var contact = parseInt(req.body.contact);
+           var Guest = parseInt(req.body.guest);
+           var Comment = req.body.comment;
+           var Date = parseInt(req.body.date);
+           var Food = req.body.inputfood;
+            var mailOption = {
+                from: 'timothygreen573@gmail.com',
+                to: req.body.email,
+                subject: 'Table-Booking',
+                text: 'Table Booking Successfull',
+                html: '<h1>Your Table Booking is Successfull</h1><h2>No of Guest: '+Guest+'</h2><h2>Contact: '+contact+'</h2><h2>Food Type: '+Food+'</h2><h2>Comments: '+Comment+'</h2><h2>Date: '+Date+'</h2>'
+               
+            }
+
+            transporter.sendMail(mailOption, function(error, sccc){
+                if(error){
+                    console.log(error)
+                }else{
+                    alert("Table Booking succesfull, Check your mail box for more info");
+                    console.log("Email Sent");
+                    res.send(succ);
+
+                }
+            })
+
+
+
+        })
+        
+
+
+
 
 app.get('/',(req,res)=>{
     console.log("Hello");
