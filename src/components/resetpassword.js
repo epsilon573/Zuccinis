@@ -3,10 +3,9 @@ import {Grid,Card,CardContent,TextField,Button,Typography} from '@material-ui/co
 import Particles from 'react-particles-js'
 import particleConfig from '../config/particle-config'
 import {Link} from 'react-router-dom';
-import {makeStyles, createTheme, responsiveFontSizes, ThemeProvider} from '@material-ui/core/styles'
+import {makeStyles, createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core/styles'
 import clsx from 'clsx'
 import Axios from 'axios'
-
 const useStyles = makeStyles((theme)=>({
   title: {
     position: 'absolute',
@@ -15,31 +14,29 @@ const useStyles = makeStyles((theme)=>({
   },
   tokyo: {
     fontFamily: ['Zen Tokyo Zoo', 'cursive'].join(',')
-  }
+  },
 }));
 
-function AdminLogin() {
+function ResetPassword() {
   
   const classes = useStyles();
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
 
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const Login = () =>{
+  const SendOTP = () =>{
     var myObj = {
-      adminEmail : email,
-      adminPassword : password
+      userEmail : email
     };
 
     console.log(myObj);
 
-    Axios.post('http://localhost:5000/adminLogin',myObj).then((res)=>{
+    Axios.post('http://localhost:5000/SendOTP',myObj).then((res)=>{
         if(res.data === "User Found")
         {
-          window.location.href = '/adminpanel';
+          window.location.href = '/newPassword/?email='+email ;
         }
         else
         {
@@ -51,31 +48,30 @@ function AdminLogin() {
   return (
     <>
       <div>
-        <ThemeProvider theme={theme}>
-        <Grid container>
-          <Grid container xs={12} sm={6} justify = "center" style={{color: "#FFFFFF", backgroundColor: "#2c2e43", minHeight: "100vh" }}>
+      <ThemeProvider theme={theme}>
+        <Grid container> 
+          <Grid container xs={12} sm={6} justify="center" style={{color: "#FFFFFF", backgroundColor: "#2c2e43", minHeight: "100vh"}}>
             <Particles height="100vh" width="100%" params={particleConfig} />
             <Typography variant="h1" className={clsx(classes.title, classes.tokyo)}> Zuccini's </Typography>
           </Grid>
           <Grid container xs={12} sm={6} justify="center" alignItems="center" style={{padding: '5%'}}>
             <Card style={{width:"50%"}}>
             <CardContent>
-              <Typography align="center" variant="h4"> Admin Login </Typography> 
+              <Typography align="center" variant="h4"> Reset Password </Typography> 
             </CardContent>
             <CardContent>
-              <TextField id="outlined-email-input" label="Email" type="email" variant="outlined" fullWidth 
-                onChange={(event)=>{ setEmail(event.target.value) }} />
+              <TextField 
+                fullWidth
+                id="outlined-email-input"
+                label="Email"
+                type="email"
+                variant="outlined"
+                onChange={(event)=>{ setEmail(event.target.value) }}
+                helperText={errorMsg}
+              />
               </CardContent>
               <CardContent>
-              <TextField id="outlined-password-input" label="Password" type="password" variant="outlined" fullWidth
-                onChange={(event)=>{ setPassword(event.target.value) }} 
-                helperText = {errorMsg} />
-              </CardContent>
-              <CardContent>
-              <Button fullWidth variant="contained" color="primary" onClick={Login} > Log In </Button>
-              </CardContent>
-              <CardContent>
-              <Typography variant="h6" align="center">  Not Admin? <Link to='/userlogin'> Login Here </Link> </Typography> 
+              <Button fullWidth variant="contained" color="primary" onClick={SendOTP}> Send OTP </Button>
               </CardContent>
             </Card>
           </Grid>
@@ -86,4 +82,4 @@ function AdminLogin() {
   );
 }
 
-export default AdminLogin;
+export default ResetPassword;

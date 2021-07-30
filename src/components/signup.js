@@ -71,7 +71,7 @@ function UserSignup() {
                 onChange={(event)=>{ setName(event.target.value) }} />
               </CardContent>
             <CardContent>
-              <TextField id="outlined-email-input" label="Email" variant="outlined" fullWidth 
+              <TextField id="outlined-email-input" label="Email" type="email" variant="outlined" fullWidth 
                 onChange={(event)=>{ setEmail(event.target.value) }} />
               </CardContent>
               <CardContent>

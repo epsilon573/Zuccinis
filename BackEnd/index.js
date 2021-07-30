@@ -17,6 +17,12 @@ var transporter = nodemailer.createTransport({
     }
 })
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
     if(err) 
         return console.error(err);
@@ -155,6 +161,92 @@ mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
         })
     });
 
+    app.post('/sendOTP',(req,res)=>{
+        var myObj = {
+            email: req.body.userEmail
+        };
+
+        users.findOne(myObj, (err,doc)=>{
+            if(err) console.error(err);
+            else
+            {
+                if(doc)
+                {
+                    var otp = getRandomInt(100000,999999);
+                    var mailOption = {
+                        from: 'timothygreen573@gmail.com',
+                        to: doc.email,
+                        subject: 'OTP Verification',
+                        text: 'Your OTP to reset password is '+ otp
+                    }
+                
+                    transporter.sendMail(mailOption, function(error, succ){
+                        if(error){
+                            console.log(error)
+                        }else{
+                            console.log("Email Sent");
+                            res.send(succ);
+                        }
+                    })
+
+                    users.updateOne(myObj, {
+                        $set:{
+                            otp: otp
+                        } }, (err,doc)=>{
+                            if(err) console.error(err);
+                        }
+                    );
+
+                    res.send("User Found");
+                }
+                else
+                {
+                    res.send("Email not registered");
+                }
+            }
+        })
+    });
+
+    app.post('/newPass',(req,res)=>{
+        var myObj = {
+            email: req.body.userEmail,
+        };
+        
+        users.findOne(myObj, (err,doc)=>{
+            if(err) console.error(err);
+            else
+            {
+                if(doc)
+                {
+                    var otp = getRandomInt(100000,999999);
+                    
+                    if(doc.otp.toString() === req.body.userOTP)
+                    {
+                        users.updateOne(myObj, {
+                            $set:{
+                                otp: otp,
+                                password: req.body.userPassword
+                            } }, (err,doc)=>{
+                                if(err) console.error(err);
+                                else
+                                {
+                                    res.send("Password Reset");
+                                }
+                            }
+                        );
+                    }
+                    else
+                    {
+                        res.send("Invalid OTP")
+                    }
+                }
+                else
+                {
+                    res.send("Email not registered");
+                }
+            }
+        })
+    });
 });
 
 // Setup Application
@@ -163,24 +255,6 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json())
 app.use(cors())
-
-app.get('/sendMail',(req,res)=>{
-    var mailOption = {
-        from: 'timothygreen573@gmail.com',
-        to: 'timothygreen581@gmail.com',
-        subject: 'OTP Verification',
-        text: 'Your OTP is '+123456+', Please dont share with anyone.'
-    }
-
-    transporter.sendMail(mailOption, function(error, succ){
-        if(error){
-            console.log(error)
-        }else{
-            console.log("Email Sent");
-            res.send(succ);
-        }
-    })
-});
 
 app.get('/',(req,res)=>{
     console.log("Hello");
