@@ -1,18 +1,6 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,13 +15,292 @@
 .App-link {
   color: #61dafb;
 }
+*{
+  font-family: monospace;
+  color: rgb(128, 65, 23);
+}
+
+.glyphicon-glass{
+  color: #fff !important;
+}
+
+.navbar-inverse{
+  background: rgb(211, 129, 74) !important;
+  border-color: transparent !important;
+  
+}
+.navbar-inverse .navbar-brand{
+  color: #fff !important;
+  font-family: monospace;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-right: 35px;
+}
+.navbar-inverse .navbar-nav > li > a {  
+  color: #fff !important;
+}
+
+.container1{
+  background-image: url(./components/images/Homefood.jpg);
+  background-size: cover;
+  margin-top: -20px;
+  
+ } 
+#myNavbar .navbar-nav {
+  color: #fff !important;
+  font-family: monospace;
+  font-size: 18px;
+  margin-top: 5px;
+
+} 
+.row1{
+  margin-top: 20%;
+} 
+.welcometext1{
+  font-size: 50px;
+  background: linear-gradient(90deg, rgba(255,97,0,0.1225840678068102) 0%, rgba(222,192,38,0.6141807064622724) 50%, rgba(255,97,0,0.1225840678068102) 100%);
+  font-weight: 900;
+}
+.welcometext2{
+  font-size: 25px;
+  /* background: rgb(255,97,0); */
+  background: linear-gradient(90deg, rgba(255,97,0,0.1225840678068102) 0%, rgba(222,192,38,0.6141807064622724) 50%, rgba(255,97,0,0.1225840678068102) 100%);
+  font-weight: 400;
+}
+
+.box2{
+  background-color: rgb(255, 255, 255, 0.99) ;
+  margin-top: 8%;
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+.review1{
+  font-family: 'Lobster', cursive;
+}
+
+.img1{
+  border-radius: 50%;
+  margin-top: 5%;
+
+}
+.glyphicon-star {
+  font-size: 30px;
+  color: #e67e22;
+}
+.row2{
+  position: relative;
+  background-color: antiquewhite;
+}
+.box3{
+  background-color:#fff;
+}
+.box4{
+  background-color: #fff;
+}
 
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.box41{
+  background-color: #fff;
+  border: 1px solid lightgrey;
+  border-radius: 2%;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+.text1{
+  text-align: inherit;
+  width: 90%;
+}
+.tablebookimg{
+  border-radius: 2%;
+
+}
+input[type="text"] {
+  border-radius: 20px;
+  border: 1px solid rgb(128, 65, 23) ;
+}
+#contact{
+  border-radius: 20px;
+  border: 1px solid rgb(128, 65, 23) ;
+
+}
+#date{
+  border-radius: 20px;
+  border: 1px solid rgb(128, 65, 23) ;
+
+}
+#comment{
+  border-radius: 20px;
+  border: 1px solid rgb(128, 65, 23) ;
+}
+#inputFood{
+  border-radius: 20px;
+  border: 1px solid rgb(128, 65, 23) ;
+}
+.tablebookhead1{
+  font-weight: 900;
+}
+.tablebookhead2{
+  font-weight: lighter;
+}
+.guests{
+  font-weight: 500;
+  font-size: 18px;
+}
+.box61 .box62{
+    background-color: #fff;
+    /* height: 20vh; */
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+   border-radius: 2%;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  
   }
-  to {
-    transform: rotate(360deg);
-  }
+.box6{
+    background-color: #fff;
+  
+}
+.heading3 .heading4{
+  font-size: 30px;
+}
+.heading3{
+  font-weight: 900;
+}
+.heading4{
+  font-weight: normal;
+}
+.row3{
+  position: relative;
+}
+.btn{
+  width: 40%;
+  height: 50px;
+  background: rgb(128, 65, 23) !important;
+  color: #fff !important;
+  border: none;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  border-radius: 20px !important;
+
+}
+.btn2{
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  width: 20%;
+  height: 50px;
+  background: #fff !important;
+  color: orange !important;
+  border: none;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  border-radius: 20px !important;
+}
+
+.container6{
+  width: 100% !important;
+  color: rgb(128, 65, 23);
+}
+.img-responsive{
+  color: orange !important;
+}
+.heading5{
+  font-weight: 700;
+}
+.para1{
+  font-weight: 150;
+  color: rgb(128, 65, 23);
+  font-size: 15px;
+}
+.Address{
+  font-size: 22px;
+  font-weight: 500;
+}
+.contact{
+  font-size: 25px;
+  font-weight: 800;
+}
+.email{
+  font-size: 20px;
+  font-weight: 500;
+}
+.list1{
+  font-weight: 300;
+  color: rgb(128, 65, 23);
+  text-decoration: none !important;
+  font-size: 18px;
+}
+.footer{
+  text-align: center;
+  font-weight: 500;
+}
+.menu:hover
+{
+    font-size: 22px !important;
+}
+.text4{
+  font-weight: 900;
+}
+.text5{
+  font-weight: 400;
+}
+
+
+/* about.js css */
+
+.aboutcont1{
+  height: 500px;
+  background-image: url(./components/images/group.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-top: -20px;
+}
+/* .abox1{
+  width: 100%;
+} */
+.abox11{
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid lightgrey;
+  border-radius: 2%;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+.apara1{
+  margin-left: 10%;
+  width: 80%;
+  text-align:justify;
+  font-weight: normal;
+}
+.aheading1{
+  font-size: 40px;
+  font-weight: 800;
+}
+/* .abox2{
+ 
+  border: 1px solid lightgrey;
+  border-radius: 2%;
+  box-shadow: rgba(217, 231, 243, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+} */
+.btn3{
+  width: 40%;
+  height: 50px;
+  background: rgb(128, 65, 23) !important;
+  color: #fff !important;
+  /* border: 2px solid rgb(128, 65, 23) !important; */
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  border-radius: 20px !important;
+  margin-top: 5%;
+}
+/* contactus */
+.cheading1{
+  font-size: 25px;
+  font-weight: 550;
+}
+.cpara1{
+  color: grey !important;
+  font-size: 18px;
+  font-weight: 200;
 }

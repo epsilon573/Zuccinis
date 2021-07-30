@@ -155,32 +155,6 @@ mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
         })
     });
 
-    // app.post('/getReq',(req,res)=>{
-    //     var id = mongodb.ObjectId(req.body.fetchID);
-    //     register.findOne({ _id: id}).then(succ=>{
-    //         res.send(succ);
-    //     });
-    // });
-
-    // app.post('/delReq', (req,res)=>{
-    //     var idx = mongodb.ObjectId(req.body.delID);
-    //     register.deleteOne({
-    //         _id: idx
-    //     });
-    // });
-
-    // app.post('/editReq',(req,res)=>{
-    //     var id = mongodb.ObjectId(req.body.updateID);
-    //     register.updateOne({_id: id}, {
-    //         $set:{
-    //             Name: req.body.Name,
-    //             Email: req.body.Email,
-    //             Password: req.body.Password,
-    //             Contact: req.body.Contact  
-    //             }
-    //     });
-    // });
-
 });
 
 // Setup Application
