@@ -12,10 +12,11 @@ import AboutUs from './components/aboutus.js';
 import ContactUs from './components/contactus.js';
 import ResetPassword from './components/resetpassword';
 import NewPassword from './components/newpassword';
+import Stats from './components/stats';
+import Users from './components/users';
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 
 function App() {
   return (
@@ -53,6 +54,12 @@ function App() {
         </Route>
         <Route path='/newpassword'>
           <NewPassword/>
+        </Route>
+        <Route path='/stats'>
+          <Stats/>
+        </Route>
+        <Route path='/users'>
+          <Users/>
         </Route>
       </Router>
     </>

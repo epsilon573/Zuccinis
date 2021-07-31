@@ -48,13 +48,17 @@ function AdminPanel() {
               </Link>
               </CardContent>
               <CardContent>
+              <Link to='/users'>
               <Button fullWidth variant="contained" color="primary"> Show Users </Button>
+              </Link>
               </CardContent>
               <CardContent>
               <Button fullWidth variant="contained" color="primary"> Show Orders </Button>
               </CardContent>
               <CardContent>
+              <Link to='/stats'>
               <Button fullWidth variant="contained" color="primary"> Show Stats </Button>
+              </Link>
               </CardContent>
             </Card>
           </Grid>

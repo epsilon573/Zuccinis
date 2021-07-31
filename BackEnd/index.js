@@ -147,7 +147,29 @@ mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
         })
     });
 
+    app.post('/removeUser',(req,res)=>{
+        var myObj = {
+            email: req.body.userEmail,
+        };
+        
+        console.log(myObj);
+
+        users.deleteOne(myObj, (err,doc)=> {
+            if(err) console.error(err);
+            else
+            {
+                if(doc)
+                {
+                   res.send("User Removed")
+                }
+                else
+                    res.send('This Email is not registered')
+            }
+        })
+    });
+
     app.get('/getCategory',(req,res)=>{
+        console.log("Fetching Categories");
         category.find().toArray().then(succ=>{
             if(succ) res.send(succ);
             else console.log("Couldn't Fulfill GetCategory Request!")
@@ -158,6 +180,14 @@ mongoClient.connect(connString, {useUnifiedTopology: true} ,(err,client)=>{
         products.find().toArray().then(succ=>{
             if(succ) res.send(succ);
             else console.log("Couldn't Fulfill GetProducts Request!")
+        })
+    });
+
+    app.get('/getUsers',(req,res)=>{
+        console.log("Fetching Users");
+        users.find().toArray().then(succ=>{
+            if(succ) res.send(succ);
+            else console.log("Couldn't Fulfill GetUsers Request!")
         })
     });
 

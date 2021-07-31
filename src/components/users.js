@@ -5,31 +5,40 @@ import {createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import Axios from 'axios';
 
-function AddCategory() {
+function Users() {
   
-  let theme = createTheme();
-  theme = responsiveFontSizes(theme);
+    let theme = createTheme();
+    theme = responsiveFontSizes(theme);
+    const history = useHistory();
 
-  const history = useHistory();
-  const [category, setCategory] = useState([]);
-  const [newCategory, setNewCategory] = useState('');
+    const [users, setUsers] = useState([]);
+    const [email, setEmail] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
 
-  const getCategory = () => {
-    Axios.get('http://localhost:5000/getCategory').then((res)=>{
-        console.log(res.data);
-        setCategory(res.data);
+  const getUsers = () => {
+    Axios.get('http://localhost:5000/getUsers').then((res)=>{
+        setUsers(res.data);
     });
   };
 
-  const addCategory = () => {
-    console.log("Adding new Cateogry "+newCategory);
-    Axios.post('http://localhost:5000/addCategory',{ newCategory: newCategory}).then((res)=>{
-      history.push('/addCategory');
+  const removeUser = () => {
+    console.log('Removing User');
+    var MyObj = {
+      userEmail: email,
+    };
+    console.log(MyObj);
+    Axios.post('http://localhost:5000/removeUser',MyObj).then((res)=>{
+        if(res.data==="User Removed")
+            history.push('/users');
+        else
+        {
+            setErrorMsg(res.data);
+        }
     });
   }
 
   useEffect(()=>{
-    getCategory();
+    getUsers();
   },[]);
 
   return (
@@ -38,24 +47,36 @@ function AddCategory() {
       <ThemeProvider theme={theme}>
         <Grid container> 
           <Grid container xs={12} sm={6} justify="center" style={{color: "#FFFFFF", backgroundColor: "#2c2e43", minHeight: "100vh", padding: "5%"}}>
-            <Card style={{width:"50%", height:"auto"}}>
+            <Card style={{width:"90%", height:"auto"}}>
               <CardContent>
             <TableContainer component={Paper} >
                 <Table>
                     <TableHead>
                         <TableRow>
                             <TableCell>
-                              <Typography variant="h6"> Category </Typography>
+                              <Typography variant="h6"> Name </Typography>
+                            </TableCell>
+                            <TableCell>
+                              <Typography variant="h6"> Email </Typography>
+                            </TableCell>
+                            <TableCell>
+                              <Typography variant="h6"> Contact </Typography>
                             </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                       {
-                        category.map((row)=>(
+                        users.map((row)=>(
                           <TableRow key={row._id}>
                             <TableCell>
                               <Typography> {row.name} </Typography>
-                            </TableCell>  
+                            </TableCell>
+                            <TableCell>
+                              <Typography> {row.email} </Typography>
+                            </TableCell> 
+                            <TableCell>
+                              <Typography> {row.contact} </Typography>
+                            </TableCell>   
                           </TableRow>
                         ))
                       }
@@ -67,20 +88,21 @@ function AddCategory() {
           </Grid>
           <Grid container xs={12} sm={6} justify="center" alignItems="center" style={{padding: '5%'}}>
             <Card style={{width:"50%"}}>
-            <CardContent>
-              <Typography align="center" variant="h4"> Add Category </Typography> 
+             <CardContent>
+              <Typography align="center" variant="h4"> Remove User </Typography> 
             </CardContent>
             <CardContent>
-              <TextField 
+            <TextField 
                 fullWidth
-                id="outlined-category-input"
-                label="Category"
+                id="outlined-email-input"
+                label="Email"
                 variant="outlined"
-                onChange={(event)=>{setNewCategory(event.target.value)}}
+                onChange={(event)=>{setEmail(event.target.value)}}
+                helperText={errorMsg}
               />
-              </CardContent>
+            </CardContent>
               <CardContent>
-              <Button fullWidth variant="contained" color="primary" onClick={addCategory}> Insert </Button>
+              <Button fullWidth variant="contained" color="primary" onClick={removeUser}> Remove </Button>
               </CardContent>
               <CardContent>
               <Typography variant="h6" align="center"> <Link to='/adminpanel'>  Admin Panel </Link> </Typography> 
@@ -94,4 +116,4 @@ function AddCategory() {
   );
 }
 
-export default AddCategory;
+export default Users;
