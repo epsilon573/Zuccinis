@@ -44,14 +44,6 @@ function About(){
                  <a className="menu" href="/about">About</a>
               </li>
             </ul>
-            <ul className="nav navbar-nav navbar-right">
-              <li className="list">
-                <Link className="menu" to="/reg">
-                  <span className="glyphicon glyphicon-glass"></span> Book a
-                  table
-                </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </nav>

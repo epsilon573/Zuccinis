@@ -28,8 +28,9 @@ function home() {
     if (email == "") {
       alert("Please fill your email");
     } else {
-      Axios.post("http://localhost:5000/sendMail1", { email: email , guest: guest , date: date, contact: contact , inputfood:inputfood , comment:comment}).then(
+      Axios.post("http://localhost:5000/sendMail", { email: email , guest: guest , date: date, contact: contact , inputfood:inputfood , comment:comment}).then(
         function (succ) {
+          console.log(succ.data);
           if (succ.data == "noemail") {
             alert("Sry this email is not registered");
           } else if (succ.data == "error") {
@@ -79,10 +80,10 @@ function home() {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="list">
-                <Link className="menu" to="/reg">
+              <a className="menu" href="#booktable">
                   <span className="glyphicon glyphicon-glass"></span> Book a
                   table
-                </Link>
+                  </a>
               </li>
             </ul>
           </div>
@@ -187,7 +188,7 @@ function home() {
             <img src={Table} width="100%" className="img-fluid tablebookimg" alt="" />
           </div>
         </div>
-        <div className="col-lg-4 col-lg-offset-1">
+        <div className="col-lg-4 col-lg-offset-1" id="booktable">
           <div className="box5">
             <h1 className="tablebookhead1">Book a Table</h1>
             <br></br>
@@ -196,7 +197,7 @@ function home() {
               just a couple of minutes
             </h4>
             <br></br>
-            <form>
+            
               <div class="form-row">
                 <div class="form-group col-lg-12">
                   <label className="guests" for="guests">No of Guests</label>
@@ -258,7 +259,7 @@ function home() {
               <button type="button" class="btn btn5 btn-primary" onClick={sendmail}>
                 Send Request
               </button>
-            </form>
+            
           </div>
         </div>
       </div>

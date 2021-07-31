@@ -84,27 +84,27 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json())
 app.use(cors())
 
-app.get('/sendMail',(req,res)=>{
-    var mailOption = {
-        from: 'timothygreen573@gmail.com',
-        to: 'timothygreen581@gmail.com',
-        subject: 'OTP Verification',
-        text: 'Your OTP is '+123456+', Please dont share with anyone.'
-    }
+// app.get('/sendMail',(req,res)=>{
+//     var mailOption = {
+//         from: 'timothygreen573@gmail.com',
+//         to: 'timothygreen581@gmail.com',
+//         subject: 'OTP Verification',
+//         text: 'Your OTP is '+123456+', Please dont share with anyone.'
+//     }
 
-    transporter.sendMail(mailOption, function(error, succ){
-        if(error){
-            console.log(error)
-        }else{
-            console.log("Email Sent");
-            res.send(succ);
-        }
-    })
-});
+//     transporter.sendMail(mailOption, function(error, succ){
+//         if(error){
+//             console.log(error)
+//         }else{
+//             console.log("Email Sent");
+//             res.send(succ);
+//         }
+//     })
+// });
 
 // table booking mail
 
-app.post('/sendMail1', (req,res) => {
+app.post('/sendMail', (req,res) => {
            var contact = parseInt(req.body.contact);
            var Guest = parseInt(req.body.guest);
            var Comment = req.body.comment;
@@ -119,11 +119,10 @@ app.post('/sendMail1', (req,res) => {
                
             }
 
-            transporter.sendMail(mailOption, function(error, sccc){
+            transporter.sendMail(mailOption, function(error, succ){
                 if(error){
                     console.log(error)
                 }else{
-                    alert("Table Booking succesfull, Check your mail box for more info");
                     console.log("Email Sent");
                     res.send(succ);
 
