@@ -1,0 +1,86 @@
+header{
+    min-height: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    float: center;
+    background-color: rgb(255, 241, 226);
+}
+header .logo a{
+    font-size: 45px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+header nav{
+    height: 70px;
+    font-style: arial;
+    display: flex;   
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+nav ul li a{
+    margin-top: 40%;
+    text-decoration: none;
+    font-size: large;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    padding: 0 15px;
+}
+
+nav .nav-cart{
+    cursor: pointer;
+    position: relative;
+    margin-top: 22px;
+    margin-left: 15px;
+}
+nav .nav-cart span{
+    position: absolute;
+    top:-12px;
+    right: -7px;
+    background: crimson;
+    font-size: 10px;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 50%;
+    z-index: 0;
+}
+header .menu,
+header .close{
+    cursor: pointer;
+    display: none;
+}
+@media (max-width: 650px){
+    header ul{
+        position: fixed;
+        top:0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        background: white;
+        z-index: 99;
+        opacity: 0.97;
+        transition: 0.5s linear;
+    }
+    header .menu,
+    header .close{
+        display: block;
+    }
+    header .close{
+        position: absolute;
+        top:10px;
+        right: 20px;
+    }
+    header ul.toggle{
+        left: 0;
+    }
+}

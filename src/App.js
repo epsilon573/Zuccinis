@@ -14,6 +14,7 @@ import ResetPassword from './components/resetpassword'
 import NewPassword from './components/newpassword'
 import Stats from './components/stats'
 import Users from './components/users'
+import Productpage from './components/productpage'
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -60,6 +61,9 @@ function App() {
         </Route>
         <Route path='/users'>
           <Users/>
+        </Route>
+        <Route path='/products'>
+          <Productpage/>
         </Route>
       </Router>
     </>
