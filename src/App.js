@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import "./App.css";
+>>>>>>> kamal
 import React from 'react'
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import UserLogin from './components/userLogin';

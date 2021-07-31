@@ -133,9 +133,12 @@ function About(){
         </div>
         <br></br><br></br>
         <div className="container text-center">
-        <button type="button" class="btn3 btn-primary">
+          <a href="/contact">
+          <button type="button" class="btn3 btn-primary">
                 Contact Us
               </button>
+          </a>
+        
         </div>
         <br></br>
       </div>

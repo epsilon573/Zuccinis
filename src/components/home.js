@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link, BrowserRouter as Router } from "react-router-dom";
-// import image1 from "../components/images/Homefood.jpg";
-// import image2 from "../components/images/Homefood2.jpg";
 import Robert from "../components/images/robert.jpg";
 import Burger from "../components/images/burger.jpg";
 import Meal from "../components/images/meal.jpg";
@@ -14,18 +12,39 @@ import Res1 from "../components/images/restaurant1.jpg";
 import Res2 from "../components/images/restaurant2.jpg";
 import Res3 from "../components/images/restaurant3.jpg";
 import Res4 from "../components/images/restaurant4.jpg";
-// import Fb from "../components/images/fb.svg";
-// import Pinterest from "../components/images/pinterest.svg";
-// import Insta from "../components/images/insta.svg";
-// import Twitter from "../components/images/twitter.svg";
-// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-// import { fafacebook } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Axios from 'axios'
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function home() {
+
+  function sendmail() {
+    var email = document.getElementById("email").value;
+    var guest = document.getElementById("guest").value;
+    var date = document.getElementById("date").value;
+    var contact = document.getElementById("contact").value;
+    var inputfood = document.getElementById("inputFood").value;
+    var comment = document.getElementById("comment").value;
+    if (email == "") {
+      alert("Please fill your email");
+    } else {
+      Axios.post("http://localhost:5000/sendMail1", { email: email , guest: guest , date: date, contact: contact , inputfood:inputfood , comment:comment}).then(
+        function (succ) {
+          if (succ.data == "noemail") {
+            alert("Sry this email is not registered");
+          } else if (succ.data == "error") {
+            alert("Something went wrong, please try again later");
+          } else {
+            alert("Mail has been send, please check");
+          }
+        }
+      );
+    }
+  }
+
   return (
     <>
-      <nav class="navbar navbar-inverse navbar-fixed">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
             <button
@@ -183,8 +202,8 @@ function home() {
                   <label className="guests" for="guests">No of Guests</label>
                   <input
                     type="text"
-                    class="form-control"
-                    id="guests"
+                    class="form-control form1"
+                    id="guest"
                     placeholder="no of guests"
                   />
                 </div>
@@ -192,14 +211,14 @@ function home() {
                   <label className="guests" for="date">Date</label>
                   <input
                     type="date"
-                    class="form-control"
+                    class="form-control form1"
                     id="date"
                     placeholder="Date"
                   />
                 </div>
                 <div class="form-group col-lg-6">
                   <label className="guests" for="food">Food Type</label>
-                  <select id="inputFood" class="form-control">
+                  <select id="inputFood" class="form-control form1">
                     <option selected>Dinner</option>
                     <option>Break-fast</option>
                     <option>Lunch</option>
@@ -210,33 +229,33 @@ function home() {
                   <label className="guests" for="contact">Contact</label>
                   <input
                     type="text"
-                    class="form-control"
+                    class="form-control form1"
                     id="contact"
                     placeholder="fill your contact details"
                   />
                 </div>
                 <div class="form-group col-lg-12">
-                  <label className="guests" for="contact">
+                  <label className="guests" for="email">
                     Email
                   </label>
                   <input
                     type="email"
-                    class="form-control"
-                    id="contact"
+                    class="form-control form1"
+                    id="email"
                     placeholder="Enter Your Email"
                   />
                 </div>
                 <div class="form-group col-lg-12">
                   <label className="guests" for="comment">Message:</label>
                   <textarea
-                    class="form-control"
+                    class="form-control form1"
                     rows="5"
                     id="comment"
                   ></textarea>
                 </div>
               </div>
 
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn5 btn-primary" onClick={sendmail}>
                 Send Request
               </button>
             </form>

@@ -15,10 +15,10 @@
 .App-link {
   color: #61dafb;
 }
-*{
+/* *{
   font-family: monospace;
   color: rgb(128, 65, 23);
-}
+} */
 
 .glyphicon-glass{
   color: #fff !important;
@@ -27,17 +27,21 @@
 .navbar-inverse{
   background: rgb(211, 129, 74) !important;
   border-color: transparent !important;
+  height: 10vh !important;
+  
   
 }
 .navbar-inverse .navbar-brand{
   color: #fff !important;
   font-family: monospace;
   font-size: 30px;
-  margin-top: 5px;
+  margin-top: 7px;
   margin-right: 35px;
+
 }
 .navbar-inverse .navbar-nav > li > a {  
   color: #fff !important;
+  margin-top: 7px;
 }
 
 .container1{
@@ -115,28 +119,12 @@
   border-radius: 2%;
 
 }
-input[type="text"] {
-  border-radius: 20px;
-  border: 1px solid rgb(128, 65, 23) ;
-}
-#contact{
-  border-radius: 20px;
-  border: 1px solid rgb(128, 65, 23) ;
+.form1{
+  border-radius: 20px !important;
+  border: 1px solid rgb(128, 65, 23) !important;
 
 }
-#date{
-  border-radius: 20px;
-  border: 1px solid rgb(128, 65, 23) ;
 
-}
-#comment{
-  border-radius: 20px;
-  border: 1px solid rgb(128, 65, 23) ;
-}
-#inputFood{
-  border-radius: 20px;
-  border: 1px solid rgb(128, 65, 23) ;
-}
 .tablebookhead1{
   font-weight: 900;
 }
@@ -284,7 +272,7 @@ input[type="text"] {
   box-shadow: rgba(217, 231, 243, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 } */
 .btn3{
-  width: 40%;
+  width: 30%;
   height: 50px;
   background: rgb(128, 65, 23) !important;
   color: #fff !important;
