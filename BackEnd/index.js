@@ -306,7 +306,6 @@ app.post('/sendMail1', (req,res) => {
                 if(error){
                     console.log(error)
                 }else{
-                    alert("Table Booking succesfull, Check your mail box for more info");
                     console.log("Email Sent");
                     res.send(succ);
                 }
