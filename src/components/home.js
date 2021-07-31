@@ -28,7 +28,7 @@ function home() {
     if (email == "") {
       alert("Please fill your email");
     } else {
-      Axios.post("http://localhost:5000/sendMail", { email: email , guest: guest , date: date, contact: contact , inputfood:inputfood , comment:comment}).then(
+      Axios.post("http://localhost:5000/sendMail1", { email: email , guest: guest , date: date, contact: contact , inputfood:inputfood , comment:comment}).then(
         function (succ) {
           console.log(succ.data);
           if (succ.data == "noemail") {
