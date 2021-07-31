@@ -1,11 +1,6 @@
 import "./App.css";
-import React,{ useState } from 'react'
-import Axios from 'axios'
-import {Grid,Card,CardContent,TextField,Button,Typography} from '@material-ui/core'
-import Particles from 'react-particles-js'
-import particleConfig from './config/particle-config'
+import React from 'react'
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import {Link} from 'react-router-dom';
 import UserLogin from './components/userLogin';
 import Home from './components/home';
 import Signup from './components/signup';
