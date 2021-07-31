@@ -1,17 +1,22 @@
-import "./App.css";
 import React from 'react'
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import UserLogin from './components/userLogin';
 import Home from './components/home';
-import Signup from './components/signup';
-import Product from './components/product';
+import UserSignup from './components/signup';
 import AdminLogin from './components/adminlogin';
 import AdminPanel from './components/adminpanel.js';
 import AddCategory from './components/addcategory.js';
 import AddProduct from './components/addproduct.js';
 import AboutUs from './components/aboutus.js';
 import ContactUs from './components/contactus.js';
+import ResetPassword from './components/resetpassword'
+import NewPassword from './components/newpassword'
+import Stats from './components/stats'
+import Users from './components/users'
+import Productpage from './components/productpage'
 
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
@@ -27,7 +32,7 @@ function App() {
           <AdminLogin/>
         </Route>
         <Route path='/signup' exact>
-          <Signup/>
+          <UserSignup/>
         </Route>
         <Route path='/adminpanel' exact>
           <AdminPanel/>
@@ -40,8 +45,24 @@ function App() {
         </Route>
         <Route path='/about' exact>
           <AboutUs/>
-        </Route><Route path='/contact' exact>
+        </Route>
+        <Route path='/contact' exact>
           <ContactUs/>
+        </Route>
+        <Route path='/resetpassword' exact>
+          <ResetPassword/>
+        </Route>
+        <Route path='/newpassword'>
+          <NewPassword/>
+        </Route>
+        <Route path='/stats'>
+          <Stats/>
+        </Route>
+        <Route path='/users'>
+          <Users/>
+        </Route>
+        <Route path='/products'>
+          <Productpage/>
         </Route>
       </Router>
     </>

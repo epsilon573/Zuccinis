@@ -2,7 +2,7 @@ import React,{ useState } from 'react'
 import {Grid,Card,CardContent,TextField,Button,Typography} from '@material-ui/core'
 import Particles from 'react-particles-js'
 import particleConfig from '../config/particle-config'
-import {Link} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {makeStyles, createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core/styles'
 import clsx from 'clsx'
 import Axios from 'axios'
@@ -17,28 +17,34 @@ const useStyles = makeStyles((theme)=>({
   },
 }));
 
-function UserLogin() {
+function NewPassword() {
   
   const classes = useStyles();
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
+  const history = useHistory();
 
-  const [email, setEmail] = useState('');
+  const queryString = window.location.search;
+  const params = new URLSearchParams(queryString);
+  const email = params.get('email');
+
+  const [OTP, setOTP] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const Login = () =>{
+  const SendOTP = () =>{
     var myObj = {
       userEmail : email,
-      userPassword : password
+      userPassword : password,
+      userOTP : OTP
     };
 
     console.log(myObj);
 
-    Axios.post('http://localhost:5000/Login',myObj).then((res)=>{
-        if(res.data === "User Found")
+    Axios.post('http://localhost:5000/newPass',myObj).then((res)=>{
+        if(res.data === "Password Reset")
         {
-          window.location.href = '/home';
+          history.push('/userlogin');
         }
         else
         {
@@ -59,40 +65,31 @@ function UserLogin() {
           <Grid container xs={12} sm={6} justify="center" alignItems="center" style={{padding: '5%'}}>
             <Card style={{width:"50%"}}>
             <CardContent>
-              <Typography align="center" variant="h4"> Login </Typography> 
+              <Typography align="center" variant="h4"> New Password </Typography> 
             </CardContent>
             <CardContent>
               <TextField 
                 fullWidth
-                id="outlined-email-input"
-                label="Email"
-                type="email"
+                id="outlined-otp-input"
+                label="OTP"
+                type="number"
                 variant="outlined"
-                onChange={(event)=>{ setEmail(event.target.value) }}
+                onChange={(event)=>{ setOTP(event.target.value) }}
               />
               </CardContent>
               <CardContent>
-              <TextField
+              <TextField 
                 fullWidth
                 id="outlined-password-input"
-                label="Password"
+                label="New Password"
                 type="password"
                 variant="outlined"
                 onChange={(event)=>{ setPassword(event.target.value) }}
-                helperText = {errorMsg}
+                helperText={errorMsg}
               />
               </CardContent>
               <CardContent>
-              <Button fullWidth variant="contained" color="primary" onClick={Login}> Login </Button>
-              </CardContent>
-              <CardContent>
-              <Typography variant="h6" align="center"> Forgot Password? <Link to='/resetpassword'> Reset </Link> </Typography> 
-              </CardContent>
-              <CardContent>
-              <Typography variant="h6" align="center">  Not a Member? <Link to='/signup'> Signup </Link> </Typography> 
-              </CardContent>
-              <CardContent>
-              <Typography variant="h6" align="center">  An Admin? <Link to='/adminlogin'> Login Here </Link> </Typography> 
+              <Button fullWidth variant="contained" color="primary" onClick={SendOTP}> Send OTP </Button>
               </CardContent>
             </Card>
           </Grid>
@@ -103,4 +100,4 @@ function UserLogin() {
   );
 }
 
-export default UserLogin;
+export default NewPassword;

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Grid,Card,CardContent,TextField,Button,Typography, MenuItem } from '@material-ui/core'
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {createTheme, ThemeProvider, responsiveFontSizes} from '@material-ui/core/styles'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import Axios from 'axios';
@@ -10,6 +10,7 @@ function AddProduct() {
     let theme = createTheme();
     theme = responsiveFontSizes(theme);
 
+    const history = useHistory();
     const [products, setProducts] = useState([]);
     const [name, setName] = useState('');
     const [category, setCategory] = useState('');
@@ -43,8 +44,8 @@ function AddProduct() {
       prodDescription: description
     };
     console.log(MyObj);
-    Axios.post('http://localhost:5000/addProduct',MyObj).then(()=>{
-      getProducts();
+    Axios.post('http://localhost:5000/addProduct',MyObj).then((res)=>{
+      history.push('/addproduct');
     });
   }
 
