@@ -302,14 +302,13 @@ app.post('/sendMail1', (req,res) => {
                
             }
 
-            transporter.sendMail(mailOption, function(error, sccc){
+            transporter.sendMail(mailOption, function(error, succ){
                 if(error){
                     console.log(error)
                 }else{
                     alert("Table Booking succesfull, Check your mail box for more info");
                     console.log("Email Sent");
                     res.send(succ);
-
                 }
             })
 

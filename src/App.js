@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import "./App.css";
->>>>>>> kamal
 import React from 'react'
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import UserLogin from './components/userLogin';
@@ -14,10 +11,10 @@ import AddCategory from './components/addcategory.js';
 import AddProduct from './components/addproduct.js';
 import AboutUs from './components/aboutus.js';
 import ContactUs from './components/contactus.js';
-import ResetPassword from './components/resetpassword';
-import NewPassword from './components/newpassword';
-import Stats from './components/stats';
-import Users from './components/users';
+import ResetPassword from './components/resetpassword'
+import NewPassword from './components/newpassword'
+import Stats from './components/stats'
+import Users from './components/users'
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
